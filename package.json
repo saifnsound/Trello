@@ -1,0 +1,15 @@
+{
+  "name": "trello",
+  "version": "1.0.0",
+  "description": "A trello clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "Saif Kotwal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
