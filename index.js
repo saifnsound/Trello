@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const hbs = require('hbs');
 
 const port = process.env.PORT || 3000;
+
+hbs.registerPartials(__dirname + '/views/partials');
+app.set('view engine', 'hbs');
 
 app.use((req,res,next) => {
     var now = new Date().toString();
@@ -14,10 +18,13 @@ app.use((req,res,next) => {
         }
     });
     next();
-})
+});
+
+app.use(express.static(__dirname + '/node_modules/materialize-css/dist/'));
+app.use(express.static(__dirname + '/views/'));
 
 app.get('/', (req,res) => {
-    res.send('Hello!');
+    res.render('home');
 });
 
 app.listen(port, () => {
